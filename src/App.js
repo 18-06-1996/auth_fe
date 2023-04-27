@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+
+
+import {BrowserRouter,Routes,Route,Navigate} from 'react-router-dom';
+import Login from './components/login';
+import Dasboard from './components/dasboard';
+export const url= 'https://localhost:8000'  
+//export const url = 'https://b43wdt-be-m9ac.onrender.com'
+
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return <>
+  <BrowserRouter>
+    <Routes>
+
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/dashboard' element={<Dasboard/>}/>
+        <Route path='*' element={<Navigate to ='/login'/>}/>
+
+     </Routes>
+  </BrowserRouter>
+  </>
+
 }
 
 export default App;
